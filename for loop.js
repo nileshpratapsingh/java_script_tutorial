@@ -9,6 +9,6 @@ const prompt = require("prompt-sync")();
     }
     
   
-    let n = prompt("enter the no.");
-    let num = n;
+    let num = prompt("enter the no.");
+
     console.log(`Factorial of ${num} is:`, factorial(num));

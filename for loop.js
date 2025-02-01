@@ -1,14 +1,37 @@
 const prompt = require("prompt-sync")();
 
+// function factorial(n) {
+//   if (n === 0 || n === 1) {
+//     return 1;
+//   }
+//   return n * factorial(n - 1);
+// }
 
-    function factorial(n) {
-        if (n === 0 || n === 1) {
-            return 1;
-        }
-        return n * factorial(n - 1);
-    }
-    
-  
-    let num = prompt("enter the no.");
+// let num = prompt("enter the n.");
+// let r = prompt("enter the r.");
 
-    console.log(`Factorial of ${num} is:`, factorial(num));
+// console.log(`Factorial of ${num} is:`, factorial(num));
+// let d = factorial(num) / (factorial(r) * factorial(num - r));
+// console.log(`The ${num}C${r} is:`,d);
+
+let a = 20;
+for (let i = 0; i < a; i++) {
+  c = i * a;
+  console.log(c);
+}
+console.log("c" + c);
+d = a++;
+console.log(d);
+
+console.log(a);
+
+const obj = {
+  name: "ronit arora",
+  Address: "243 limited housing society",
+  rollno: 215879,
+  section: "a",
+  passed: true,
+};
+console.log(obj["name"]);
+console.log((obj["name"] = "Nilesh"));
+console.log(obj["name"]);

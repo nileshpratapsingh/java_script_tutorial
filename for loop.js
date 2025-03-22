@@ -41,9 +41,9 @@ for (let e in obj){
 }
 //console.log(e)*/
 
-let i = prompt("enter the value");
+let i = prompt("enter the value:");
 while (i < 11) {
-   a = i + 11;
+  let a = i + 11;
   ++i;
   console.log(a);
 }

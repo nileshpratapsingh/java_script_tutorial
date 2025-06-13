@@ -7,3 +7,6 @@ this is to delete any repo
 
 gh repo delete https://github.com/nileshpratapsingh/your-repo-name --yes
 
+repo deletion authentication
+
+gh auth refresh -h github.com -s delete_repo

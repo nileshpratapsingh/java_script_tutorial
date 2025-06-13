@@ -11,7 +11,7 @@ const c = {
   rollno: 5952,
   section: true,
 };
-console.log(c);
+console.table(c);
 
 c["status"] = "passed";
 c["name"] = "rohan";
@@ -24,4 +24,6 @@ const dict = {
   word4: "defination",
   word5: "defination",
 };
-console.log(dict);
+for (let i = 2; i <= 5; i++) {
+  console.log(`word${i}: ${dict[`word${i}`]}`);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Telling Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #joke {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        .joke-body {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        #joke {
+            color: #333;
+        }
+        #joke-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #joke-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="joke-body">
+        <h1>Joke Telling Website</h1>
+        <button id="joke-button">Tell me a joke!</button>
+        <p id="joke"></p>
+    </div>
+    <script>
+        // Add event listener to the button
+        document.getElementById('joke-button').addEventListener('click', function() {
+            // Fetch a joke from the JokeAPI
+            fetch("https://v2.jokeapi.dev/joke/Dark?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single")
+                .then(response => response.json())
+                .then(data => {
+                    // Display the joke in the <p> element
+                    document.getElementById('joke').textContent = data.joke;
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error("Error fetching joke:", error);
+                    document.getElementById('joke').textContent = "Sorry, couldn't fetch a joke. Please try again!";
+                });
+        });
+    </script>
+</body>
+</html>

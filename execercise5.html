@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clock</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: sans-serif;
+      flex-direction: column;
+    }
+
+    .clock-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .analog-clock {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      border: 10px solid #334155;
+      border-radius: 50%;
+      background: #1e293b;
+    }
+
+    .hand {
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      background: #f8fafc;
+      top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s ease-in-out;
+    }
+
+    .hour {
+      height: 4px;
+      background: #fbbf24;
+    }
+
+    .minute {
+      background: #38bdf8;
+    }
+
+    .second {
+      background: #ef4444;
+      height: 1.5px;
+    }
+
+    .center-point {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .digital-clock {
+      margin-top: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-container">
+    <div class="analog-clock">
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+      <div class="center-point"></div>
+    </div>
+    <div class="digital-clock" id="digitalClock">00:00:00</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours();
+
+      const secondDeg = seconds * 6;
+      const minuteDeg = minutes * 6 + seconds * 0.1;
+      const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+
+      document.getElementById('second').style.transform = `rotate(${secondDeg}deg)`;
+      document.getElementById('minute').style.transform = `rotate(${minuteDeg}deg)`;
+      document.getElementById('hour').style.transform = `rotate(${hourDeg}deg)`;
+
+      const pad = (n) => n.toString().padStart(2, '0');
+      document.getElementById('digitalClock').textContent =
+        `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial call
+  </script>
+</body>
+</html>

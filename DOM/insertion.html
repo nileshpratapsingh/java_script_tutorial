@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    starting of container
+
+    <div class="container">
+     inside container
+        
+     <div id="first">
+         inside #first
+
+        </div>
+    End of #first    
+    </div>
+    end of container
+    <script>
+    let container = document.getElementsByClassName('container')[0];
+    let first = document.getElementById('first');
+
+    let container2 = document.createElement('div');
+    container2.innerHTML = `<button style="padding:20px;background:blue;color:yellow;font-family: Arial, Helvetica, sans-serif;font-size:1rem;">click</button>`;
+    container.append(container2);
+</script>
+</body>
+</html>

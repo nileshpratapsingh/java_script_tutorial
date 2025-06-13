@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button class ="first-button">click</button>
+    <div class="first">
+        class first
+    </div>hello world!
+    <script>
+        let first = document.querySelector('.first')
+        let text = document.getElementsByTagName("body")
+        
+        
+        let button = document.querySelector('.first-button')
+        button.addEventListener('click',function(){
+            first.classList.toggle("hidden")
+        })
+    </script>
+    <style>
+        .hidden{
+            display: none;
+        }
+        .first-button{
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .first-button:hover{
+            background-color: darkblue;
+        }
+        .first{
+            background-color: lightgray;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .first:hover{
+            background-color: gray;
+        }
+       
+    </style>
+</body>
+</html>

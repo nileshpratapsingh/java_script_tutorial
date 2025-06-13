@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #1c0ca9;
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    h1 {
+        color: #4CAF50;
+    }
+    
+   button, p {
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+    
+    a {
+        color: #2196F3;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    button {
+        background-color: #1c0ca9;
+        color: white;
+        border: none;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 9px;
+        gap: 10px;
+        box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s, box-shadow 0.3s;
+    border:1px solid rgba(0, 0, 0, 0.184);
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 10px;
+        flex-direction: column;
+    }
+    </style>
+<body>
+    <div class="center">
+        
+        <button onclick="A1()"><p>Click me!</p></button>
+        <button onclick="A2()"><p>Click me!</p></button>
+        <button onclick="A3()"><p>Click me!</p></button>
+    </div>
+    
+    
+    <script>
+        let A1 =function() {
+            alert("chut")
+        }
+        let A2 =function() {
+            alert("lund")
+        }
+        let A3 =function() {
+            alert("bhosdike")
+        }
+        </script>
+</body>
+</html>

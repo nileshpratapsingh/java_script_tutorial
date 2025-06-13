@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reload Warning Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .interval-message {
+        font-size: 2rem;
+        color: #333;
+      }
+      .center {
+        display: flex;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="interval-message"></div>
+    <div class="center"></div>
+    <script>
+      const center = document.querySelector(".center");
+      const msg = document.querySelector(".interval-message");
+      let counter = 1;
+
+      const intervalId = setInterval(() => {
+        msg.innerHTML += `bosdika aya<br>`;
+        counter++;
+        if (counter > 10) {
+          clearInterval(intervalId);
+        }
+      }, 500);
+
+      setTimeout(() => {
+        center.textContent = "are nahiiii";
+      }, 6000);
+    </script>
+  </body>
+</html>

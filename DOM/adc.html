@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .joke-container{
+        background-color: antiquewhite;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        border-radius: 10px;
+        }
+        #joke-button{
+            padding: 10px;
+            border-radius: 5px;
+            color: yellow;
+            font-size: 16px;
+            background-color: rgb(33, 37, 40);
+        }
+        #joke-button:hover{
+            background-color: rgb(33, 37, 40);
+            color: white;
+        }
+        .joke{
+            font-size: 20px;
+            color: rgb(33, 37, 40);
+            margin-top: 20px;
+        }
+</style>
+<body>
+    <div class="joke-container">
+        <h1>joke?</h1>
+        <button id="joke-button">click</button>
+        <p class="joke"></p>
+    </div>
+    <script>
+        let joke_button = document.getElementById("joke-button");
+
+let arr_jokes = [
+    `Why don't skeletons fight each other?\nThey don't have the guts.`,
+  `What do you call fake spaghetti?\nAn impasta.`,
+  `Why can't your nose be 12 inches long?\nBecause then it would be a foot.`,
+  `What do you call a factory that makes good products?\nA satisfactory.`,
+  `Why did the scarecrow win an award?\nBecause he was outstanding in his field.`,
+  `Did you hear about the claustrophobic astronaut?\nHe needed a little space.`,
+  `Why did the math book look sad?\nBecause it had too many problems.`,
+  `What do you call cheese that isn’t yours?\nNacho cheese.`,
+  `Why don’t some couples go to the gym?\nBecause some relationships don’t work out.`,
+  `How does a penguin build its house?\nIgloos it together.`,
+  `What do you call a fish wearing a bowtie?\nSofishticated.`,
+  `Why did the golfer bring two pairs of pants?\nIn case he got a hole in one.`,
+  `Why don't scientists trust atoms?\nBecause they make up everything.`,
+  `Why did the bicycle fall over?\nBecause it was two-tired.`,
+  `What do you call a bear with no teeth?\nA gummy bear.`,
+  `Why did the tomato turn red?\nBecause it saw the salad dressing.`,
+  `What do you call a sleeping bull?\nA bulldozer.`,
+  `Why did the cookie go to the doctor?\nBecause it felt crummy.`,
+  `What do you call an alligator in a vest?\nAn investigator.`,
+  `Why did the chicken join a band?\nBecause it had the drumsticks.`,
+  `What do you call a snowman with a six-pack?\nAn abdominal snowman.`,
+  `Why don't oysters share their pearls?\nBecause they're shellfish.`,
+  `What did the janitor say when he jumped out of the closet?\nSupplies!`,
+  `Why did the coffee file a police report?\nIt got mugged.`,
+  `What do you call a cow with no legs?\nGround beef.`,
+  `Why did the scarecrow get promoted?\nBecause he was outstanding in his field.`,
+  `What do you call a pig that knows karate?\nA pork chop.`,
+  `Why did the banana go to the doctor?\nBecause it wasn't peeling well.`,
+  `What do you call a can opener that doesn't work?\nA can't opener.`,
+  `Why did the man put his money in the blender?\nBecause he wanted to make some liquid assets.`,
+  `What do you call a dog magician?\nA labracadabrador.`,
+  `Why don't some fish play piano?\nBecause you can't tuna fish.`,
+  `Why did the mushroom go to the party?\nBecause he was a fungi.`,
+  `Why did the computer go to the doctor?\nBecause it had a virus.`,
+  `What do you call a belt made of watches?\nA waist of time.`,
+  `Why did the math book look sad?\nBecause it had too many problems.`,
+  `What do you call a group of musical whales?\nAn orca-stra.`,
+  `Why did the man run around his bed?\nBecause he was trying to catch up on his sleep.`,
+  `What do you call a pile of cats?\nA meowtain.`,
+  `Why did the bicycle fall over?\nBecause it was two-tired.`,
+  `What do you call a fish without eyes?\nFsh.`,
+  `Why did the chicken go to the seance?\nTo talk to the other side.`,
+  `What do you call a lazy kangaroo?\nA pouch potato.`,
+  `Why did the golfer bring an extra pair of pants?\nIn case he got a hole in one.`,
+  `What do you call a dinosaur with an extensive vocabulary?\nA thesaurus.`,
+  `Why did the scarecrow win an award?\nBecause he was outstanding in his field.`,
+  `What do you call a snowman with a six-pack?\nAn abdominal snowman.`,
+  `Why did the tomato turn red?\nBecause it saw the salad dressing.`,
+  `What do you call a sleeping bull?\nA bulldozer.`,
+  `Why did the cookie go to the doctor?\nBecause it felt crummy.`,
+  `What do you call an alligator in a vest?\nAn investigator.`,
+  `Why did the chicken join a band?\nBecause it had the drumsticks.`,
+  `What do you call a fish wearing a bowtie?\nSofishticated.`,
+  `Why don't scientists trust atoms?\nBecause they make up everything.`,
+  `Why did the bicycle fall over?\nBecause it was two-tired.`,
+  `What do you call a bear with no teeth?\nA gummy bear.`,
+  `Why did the tomato turn red?\nBecause it saw the salad dressing.`,
+  `What do you call a sleeping bull?\nA bulldozer.`,
+  `Why did the cookie go to the doctor?\nBecause it felt crummy.`,
+  `What do you call an alligator in a vest?\nAn investigator.`,
+  `Why did the chicken join a band?\nBecause it had the drumsticks.`,
+  `What do you call a snowman with a six-pack?\nAn abdominal snowman.`,
+  `Why don't oysters share their pearls?\nBecause they're shellfish.`,
+  `What did the janitor say when he jumped out of the closet?\nSupplies!`,
+  `Why did the coffee file a police report?\nIt got mugged.`,
+  `What do you call a cow with no legs?\nGround beef.`,
+  `Why did the scarecrow get promoted?\nBecause he was outstanding in his field.`,
+  `What do you call a pig that knows karate?\nA pork chop.`,
+  `Why did the banana go to the doctor?\nBecause it wasn't peeling well.`,
+  `What do you call a can opener that doesn't work?\nA can't opener.`,
+  `Why did the man put his money in the blender?\nBecause he wanted to make some liquid assets.`,
+  `What do you call a dog magician?\nA labracadabrador.`,
+  `Why don't some fish play piano?\nBecause you can't tuna fish.`,
+  `Why did the mushroom go to the party?\nBecause he was a fungi.`,
+  `Why did the computer go to the doctor?\nBecause it had a virus.`,
+  `What do you call a belt made of watches?\nA waist of time.`,
+  `Why did the math book look sad?\nBecause it had too many problems.`,
+  `What do you call a group of musical whales?\nAn orca-stra.`,
+  `Why did the man run around his bed?\nBecause he was trying to catch up on his sleep.`,
+  `What do you call a pile of cats?\nA meowtain.`,
+  `Why did the bicycle fall over?\nBecause it was two-tired.`,
+  `What do you call a fish without eyes?\nFsh.`,
+  `Why did the chicken go to the seance?\nTo talk to the other side.`,
+  `What do you call a lazy kangaroo?\nA pouch potato.`,
+  `Why did the golfer bring an extra pair of pants?\nIn case he got a hole in one.`,
+  `What do you call a dinosaur with an extensive vocabulary?\nA thesaurus.`,
+  `Why did the scarecrow win an award?\nBecause he was outstanding in his field.`,
+  `What do you call a snowman with a six-pack?\nAn abdominal snowman.`,
+  `Why did the tomato turn red?\nBecause it saw the salad dressing.`,
+  `What do you call a sleeping bull?\nA bulldozer.`,
+  `Why did the cookie go to the doctor?\nBecause it felt crummy.`,
+  `What do you call an alligator in a vest?\nAn investigator.`,
+  `Why did the chicken join a band?\nBecause it had the drumsticks.`,
+  `What do you call a fish wearing a bowtie?\nSofishticated.`,
+  `Why don't scientists trust atoms?\nBecause they make up everything.`,
+  `Why did the bicycle fall over?\nBecause it was two-tired.`,
+  `What do you call a bear with no teeth?\nA gummy bear.`,
+  `Why did the tomato turn red?\nBecause it saw the salad dressing.`,
+  `What do you call a sleeping bull?\nA bulldozer.`,
+  `Why did the cookie go to the doctor?\nBecause it felt crummy.`,
+  `What do you call an alligator in a vest?\nAn investigator.`,
+  `Why did the chicken join a band?\nBecause it had the drumsticks.`
+];
+
+joke_button.addEventListener("click", function () {
+    let random_joke = Math.floor(Math.random() * arr_jokes.length);
+    let joke = arr_jokes[random_joke];
+    document.querySelector(".joke").innerText = joke;
+});
+    </script>
+</body>
+</html>

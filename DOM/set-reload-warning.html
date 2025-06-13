@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Button-triggered Reload Alert</title>
+</head>
+<body>
+
+  <h2>Page with Button-triggered Reload Warning</h2>
+  <button id="reloadBtn">Reload Page</button>
+
+  <script>
+    document.getElementById("reloadBtn").addEventListener("click", function (e) {
+      const confirmReload = confirm("Are you sure you want to reload? Unsaved data will be lost.");
+      if (confirmReload) {
+        location.reload(); // Reloads the page
+      }
+      // If the user presses cancel, do nothing
+    });
+  </script>
+
+</body>
+</html>

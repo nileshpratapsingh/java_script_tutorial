@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full-Width Carousel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .carousel {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 400px;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .controls button {
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+ 
+  </style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel-track" id="track">
+    <div class="slide"><img src="DOM/GettyImages-595137433.jpg" alt="1"></div>
+    <div class="slide"><img src="DOM/l-intro-1704830001.jpg" alt="2"></div>
+    <div class="slide"><img src="DOM/most-beautiful-mountains-in-america-grand-teton.jpg" alt="3"></div>
+  </div>
+
+  <div class="controls">
+    <button onclick="prev()">❮</button>
+    <button onclick="next()">❯</button>
+  </div>
+</div>
+
+<script>
+  let index = 0;
+  const track = document.getElementById("track");
+  const totalSlides = document.querySelectorAll(".slide").length;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function prev() {
+    index = (index === 0) ? totalSlides - 1 : index - 1;
+    updateCarousel();
+  }
+
+  function next() {
+    index = (index + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  // Optional: autoplay
+  setInterval(next, 5000); // auto-slide every 5 seconds
+</script>
+
+</body>
+</html>

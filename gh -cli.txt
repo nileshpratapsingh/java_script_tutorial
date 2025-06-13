@@ -1,0 +1,9 @@
+this to make any repo
+
+gh repo create your-repo-name --public --source=. --remote=origin --push 
+
+
+this is to delete any repo
+
+gh repo delete https://github.com/nileshpratapsingh/your-repo-name --yes
+

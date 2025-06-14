@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Digital Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #232526, #414345);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #clock-container {
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 8px 32px 0 rgba(31, 126, 135, 0.37);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 40px 60px;
+            text-align: center;
+        }
+        #time {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5em;
+            color: #00ffe7;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 8px #00ffe7, 0 0 2px #fff;
+            margin-bottom: 10px;
+        }
+        #date {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2em;
+            color: #fff;
+            opacity: 0.7;
+            letter-spacing: 0.08em;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock-container">
+        <div id="time"></div>
+        <div id="date"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const timeElem = document.getElementById('time');
+            const dateElem = document.getElementById('date');
+            function updateClock() {
+                const now = new Date();
+                timeElem.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+                dateElem.textContent = now.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+            updateClock();
+            setInterval(updateClock, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Cat Viewer</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 24px;
+            text-shadow: 1px 1px 8px #fff8;
+        }
+        .img-container {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px #0002;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s;
+        }
+        .img-container:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.384);
+        }
+        #img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 4px solid #43c6ac;
+            box-shadow: 0 4px 16px #43c6ac44;
+            background: #eee;
+            margin-bottom: 16px;
+            transition: transform 0.2s;
+        }
+        #img:hover {
+            transform: scale(1.03) rotate(-2deg);
+        }
+        .caption {
+            color: #555;
+            font-size: 1.1em;
+            margin-top: 8px;
+        }
+        .refresh-btn {
+            margin-top: 18px;
+            padding: 10px 24px;
+            background: linear-gradient(90deg, #43c6ac, #f8ffae);
+            border: none;
+            border-radius: 8px;
+            color: #222;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #43c6ac33;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .refresh-btn:hover {
+            background: linear-gradient(90deg, #f8ffae, #43c6ac);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Cute Cat Viewer</h1>
+    <div class="img-container">
+        <img id="img" src="" alt="Cute Cat" />
+        <div class="caption">Enjoy a random cat photo!</div>
+    </div>
+    <script>
+        function loadCat() {
+            let Image = document.getElementById('img');
+            Image.src = '';
+            fetch("https://api.thecatapi.com/v1/images/search")
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data[0] && data[0].url) {
+                        Image.src = data[0].url;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching image:", error);
+                });
+        }
+        setInterval(loadCat,6000);
+    </script>
+</body>
+</html>

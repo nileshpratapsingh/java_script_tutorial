@@ -1,7 +1,15 @@
 
 
-
 class SchoolForm {
+
+
+    constructor(name, rollNumber, selection) {
+        console.log(`constructor called....for ${name} ${rollNumber} ${selection}`);
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.selection = selection;
+    }
+
     FormDetail(demoData) {
 
         const name = demoData?.name ;
@@ -13,13 +21,27 @@ class SchoolForm {
         console.log(
             `Your Name is: ${name}\nYour Roll No. is: ${rollNumber}\nYour Standard is: ${standard}\nYour Phone no. is: ${phoneNumber}\nYour Section is: ${section}`
         );
+        // Optionally, update instance properties
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.standard = standard;
+        this.phoneNumber = phoneNumber;
+        this.section = section;
+        this.selection = selection;
         return { name, rollNumber, standard, phoneNumber, section, selection };
     }
 
-    submitForm(name, rollNumber, standard, phoneNumber, section, selection) {
-        if (name && rollNumber && standard && phoneNumber && section && selection === 1) {
+    submitForm() {
+        if (
+            this.name &&
+            this.rollNumber &&
+            this.standard &&
+            this.phoneNumber &&
+            this.section &&
+            this.selection === 1
+        ) {
             console.log("Form Submitted!");
-        } else if (selection === 2) {
+        } else if (this.selection === 2) {
             this.cancelAdmission();
         } else {
             console.log("Form submission failed: Missing details.");
@@ -29,48 +51,30 @@ class SchoolForm {
     cancelAdmission() {
         console.log("Admission Revoked!!");
     }
-
-    constructor(){
-        console.log("counsturctor called....");
-    }
 }
 
-const student1 = new SchoolForm();
-const student2 = new SchoolForm();
+// Example usage:
+const student1 = new SchoolForm("Alice", "201", 1);
+student1.FormDetail({
+    name: "Alice",
+    rollNumber: "201",
+    standard: "12",
+    phoneNumber: "9123456789",
+    section: "B",
+    selection: 1 // Submit
+});
+student1.submitForm();
 
-// const student1Details = student1.FormDetail({
-//     name: "Alice",
-//     rollNumber: "201",
-//     standard: "12",
-//     phoneNumber: "9123456789",
-//     section: "B",
-//     selection: 1 // Submit
-// });
-// student1.submitForm(
-//     student1Details.name,
-//     student1Details.rollNumber,
-//     student1Details.standard,
-//     student1Details.phoneNumber,
-//     student1Details.section,
-//     student1Details.selection
-// );
+// Uncomment to test student2
 
-const student2Details = {
+const student2 = new SchoolForm("Bob", "202", 2);
+student2.FormDetail({
     name: "Bob",
     rollNumber: "202",
     standard: "11",
     phoneNumber: "9988776655",
     section: "C",
-    selection: 2 // Cancel
-};
-student2.FormDetail(student2Details);
-
-// student2.submitForm(
-//     student2Details.name,
-//     student2Details.rollNumber,
-//     student2Details.standard,
-//     student2Details.phoneNumber,
-//     student2Details.section,
-//     student2Details.selection
-// );
+    selection: 2 
+});
+student2.submitForm();
 

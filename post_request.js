@@ -41,9 +41,9 @@ const getToDo = async(id)=>{
   .then(response => response.json())
 }
 
-const mainFunction = async () => {
+const mainFunction = async (id = 5) => {
   let todo = await createToDo();
   console.table(todo)
-  console.table(await getToDo(5))
+  console.table(await getToDo(id))
 };
-mainFunction();
+mainFunction(6);

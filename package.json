@@ -4,7 +4,6 @@
   "main": "extra.js",
   "dependencies": {
     "ansi-regex": "^4.1.1",
-    "prompt-sync": "^4.2.0",
     "strip-ansi": "^5.2.0"
   },
   "scripts": {
@@ -13,5 +12,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prompt-sync": "^4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nileshpratapsingh/java_script_tutorial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nileshpratapsingh/java_script_tutorial/issues"
+  },
+  "homepage": "https://github.com/nileshpratapsingh/java_script_tutorial#readme",
   "description": ""
 }
